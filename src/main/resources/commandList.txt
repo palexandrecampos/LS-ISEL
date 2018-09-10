@@ -1,0 +1,30 @@
+#{method} {path};{parameters};{description}
+POST /courses;nameUser=?&acr=?&teacher=?;Creates a new course
+GET /courses;;Shows all courses
+GET /courses/{acr};;Shows the course with the acr acronym
+POST /courses/{acr}/classes;sem=?&num=?;Creates a new class on the course with acr acronym
+GET /courses/{acr}/classes;;Shows all classes for a course
+GET /courses/{acr}/classes/{sem};;Shows all classes of the acr course on the sem semester
+GET /courses/{acr}/classes/{sem}/{num};;Shows the classes of the acr course on the sem semester and with num number
+GET /programmes;;List all the programmes
+POST /programmes;pid=?&nameUser=?&length=?;Creates a new programme
+GET /programmes/{pid};;Shows the details of programme with pid acronym
+POST /programmes/{pid}/courses;acr=?&mandatory=?&semesters=?;Adds a new course to the programme pid
+GET /programmes/{pid}/courses;;Shows the course structure of programme pid
+POST /teachers;num=?&nameUser=?&emailUser=?;Creates a new teacher
+POST /students;num=?&nameUser=?&emailUser=?&pid=?;Creates a new student
+GET /users;;Shows all users
+GET /teachers;;Shows all teachers
+GET /students;;Shows all students
+GET /teachers/{num};;Shows the teacher with number num
+GET /students/{num};;Shows the student with the number num.
+POST /courses/{acr}/classes/{sem}/{num}/teachers;numDoc=?;Adds a new teacher to a class
+GET /courses/{acr}/classes/{sem}/{num}/teachers;;Shows all teachers for a class
+GET /teachers/{num}/classes;;Shows all classes for the teacher with num number
+POST /courses/{acr}/classes/{sem}/{num}/students;numStu=?;Adds a new student to a class
+GET /courses/{acr}/classes/{sem}/{num}/students;;shows all students of a class
+DELETE /courses/{acr}/classes/{sem}/{num}/students/{numStu};;removes a student from a class
+PUT /teachers/{num};nameUser=?&emailUser=?;Updates an existent teacher
+PUT /students/{num};nameUser=?&emailUser=?&pid=?;Updates an existent student
+GET /courses/{acr}/classes/{sem}/{num}/students/sorted;;Returns a list with all students of the class, ordered by increasing student number
+EXIT /;;Ends the application
